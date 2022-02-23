@@ -22,7 +22,7 @@ http://0.0.0.0:8000/docs
 There are 3 APIS :
 
 ### Create User
-```http
+```curl
 curl -X POST "http://host:8000/users/" 
 
 -H  "accept: application/json" 
@@ -48,7 +48,7 @@ curl -X POST "http://host:8000/users/"
 
 ### Login | Returns a JWT Token
 
-```http
+```curl
 curl -X PUT "http://host:8000/users/" 
 -H  "accept: application/json" 
 -H  "Content-Type: application/json" 
