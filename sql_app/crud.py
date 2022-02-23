@@ -50,7 +50,7 @@ def login_user(db: Session, user: schemas.UserLogin, verify=False):
 
 
 # To create super user by default
-def create_super_user(db: Session):
+def create_super_user(db: Session) -> bool:
 
     # use User Class as model template
     db_user = models.User(

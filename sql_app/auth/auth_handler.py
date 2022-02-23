@@ -11,7 +11,7 @@ Expiry_time = int(config("token_expire_time"))
 
 
 # How to return the token
-def token_response(token: str):
+def token_response(token: str) -> dict:
     return {"access_token": token}
 
 

@@ -8,6 +8,7 @@ from .database import SessionLocal, engine
 
 from .auth.auth_bearer import JWTBearer
 from .auth.auth_handler import signJWT, decodeJWT
+import logging
 
 
 from decouple import config
