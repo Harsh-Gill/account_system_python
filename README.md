@@ -82,7 +82,7 @@ curl -X GET "http://lhost:8000/users/"
 	{
   	"success": true,
   	"message": {
-		"hashed_password": 	“hashed_string",
+		"hashed_password": "hashed_string",
 		"name": "string",
 		"email": "string"
  	 },
