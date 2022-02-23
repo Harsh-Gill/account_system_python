@@ -63,8 +63,8 @@ curl -X PUT "http://host:8000/users/"
 ```JSON
 	{
 	  "success": true,
-       "token": “token_string”,
-	  "message": “Log in Successful",
+          "token": "token_string",
+	  "message": "Log in Successful",
 	}
 ```
 
@@ -72,7 +72,7 @@ curl -X PUT "http://host:8000/users/"
 
 ### Get Users | Requires JWT Authentication
 
-```http
+```curl
 curl -X GET "http://lhost:8000/users/" 
 -H  "accept: application/json" 
 -H  "Authorization: JWT Token
