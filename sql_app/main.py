@@ -22,7 +22,7 @@ def get_db():
 
 
 @app.post("/users/", response_model=schemas.User)
-def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
+def create_user(user: schemas.UserAccount, db: Session = Depends(get_db)):
     db_user = crud.get_user_by_email(db, email=user.email)
 
     if db_user:
@@ -38,6 +38,17 @@ def read_users(db: Session = Depends(get_db)):
     users = crud.get_users(db)
 
     return models.ResponseModel(users, "User(s) Info Feteched Successfully")
+
+
+@app.put("/users/", response_description="Processing Login")
+def login_(user: schemas.UserLogin, db: Session = Depends(get_db)):
+    users = crud.login_user(db, user)
+
+    if users:
+        return models.ResponseModel(users, "Log in Successful")
+
+    else:
+        return models.ErrorResponseModel("", 101, "Wrong Login Details")
 
 
 # @app.get("/users/{user_id}", response_model=schemas.User)
