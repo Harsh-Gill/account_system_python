@@ -1,4 +1,16 @@
-# FastAPI connection to SQLite
+# A Simple Account System implemented in FastAPI and SQLite
 
-Simple ORM FastAPI using SQLAlchemy with SQLite as a database and bycript to hash password.
-[Here's original resource](https://fastapi.tiangolo.com/tutorial/sql-databases/).
+# To Run the FastAPI Application on Port 8000
+
+```python
+python main.py
+
+```
+
+# Viewing documentation
+
+The Documentation is auto-created at :
+
+http://localhost:8000/docs 
+or
+http://0.0.0.0:8000/docs
