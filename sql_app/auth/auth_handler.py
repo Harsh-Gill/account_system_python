@@ -7,6 +7,7 @@ from decouple import config
 # Secret for algorithm
 JWT_SECRET = config("secret")
 JWT_ALGORITHM = config("algorithm")
+Expiry_time = int(config("token_expire_time"))
 
 
 # How to return the token
@@ -16,7 +17,7 @@ def token_response(token: str):
 
 # Tokenizing with JWT
 def signJWT(user_id: str) -> Dict[str, str]:
-    payload = {"user_id": user_id, "expires": time.time() + 600}
+    payload = {"user_id": user_id, "expires": time.time() + Expiry_time}
     token = jwt.encode(payload, JWT_SECRET, algorithm=JWT_ALGORITHM)
 
     return token_response(token)

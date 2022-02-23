@@ -2,10 +2,7 @@ from sqlalchemy.orm import Session
 
 from . import models, schemas
 from .helper import *
-
-
-# def get_user(db: Session, user_id: int):
-#     return db.query(models.User).filter(models.User.id == user_id).first()
+from decouple import config
 
 
 def get_user_by_email(db: Session, email: str):
@@ -50,3 +47,22 @@ def login_user(db: Session, user: schemas.UserLogin, verify=False):
     # Else not correct login details
     else:
         return
+
+
+# To create super user by default
+def create_super_user(db: Session):
+
+    # use User Class as model template
+    db_user = models.User(
+        email=config("super_user_email"),
+        name=config("super_user_name"),
+        hashed_password=get_hashed_password(
+            plain_text_password=config("super_user_pass")
+        ),
+    )
+    # db operations
+    db.add(db_user)
+    db.commit()
+    db.refresh(db_user)
+
+    return True

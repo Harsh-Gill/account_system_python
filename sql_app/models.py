@@ -12,10 +12,18 @@ class User(Base):
     hashed_password = Column(String)
 
 
-def ResponseModel(data, message):
+def ResponseModel(message):
     return {
-        "data": data,
+        "success": True,
+        "message": message,
         "code": 200,
+    }
+
+
+def LoginResponseModel(token, message):
+    return {
+        "success": True,
+        "token": token,
         "message": message,
     }
 
