@@ -33,6 +33,16 @@ curl -X POST "http://host:8000/users/"
 | :--- | :--- | :--- |
 | `name, email, password` | `string` | **Required** |
 
+#### Response
+```http
+	{
+	  "success": true,
+	  "message": "User Account Created",
+ 	 "code": 200
+	}
+```
+
+
 
 ### Login | Returns a JWT Token
 
@@ -47,6 +57,15 @@ curl -X PUT "http://host:8000/users/"
 | :--- | :--- | :--- |
 | `email, password` | `string` | **Required**. |
 
+#### Response
+```http
+	{
+	  "success": true,
+       "token": “token_string”,
+	  "message": “Log in Successful",
+	}
+```
+
 
 ### Get Users | Requires JWT Authentication
 
@@ -55,5 +74,16 @@ curl -X GET "http://lhost:8000/users/"
 -H  "accept: application/json" 
 -H  "Authorization: JWT Token
 ```
-
+#### Response
+```http
+	{
+  	"success": true,
+  	"message": {
+    "hashed_password": 	“hashed_string",
+	"name": "string",
+    	"email": "string"
+ 	 },
+  	"code": 200
+	}
+```
 
