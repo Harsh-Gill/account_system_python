@@ -15,6 +15,7 @@ http://localhost:8000/docs
 or
 http://0.0.0.0:8000/docs
 
+---
 
 ## APIS Available
 
@@ -34,7 +35,7 @@ curl -X POST "http://host:8000/users/"
 | `name, email, password` | `string` | **Required** |
 
 #### Response
-```http
+```JSON
 	{
 	  "success": true,
 	  "message": "User Account Created",
@@ -43,6 +44,7 @@ curl -X POST "http://host:8000/users/"
 ```
 
 
+---
 
 ### Login | Returns a JWT Token
 
@@ -58,7 +60,7 @@ curl -X PUT "http://host:8000/users/"
 | `email, password` | `string` | **Required**. |
 
 #### Response
-```http
+```JSON
 	{
 	  "success": true,
        "token": “token_string”,
@@ -66,6 +68,7 @@ curl -X PUT "http://host:8000/users/"
 	}
 ```
 
+---
 
 ### Get Users | Requires JWT Authentication
 
@@ -75,13 +78,13 @@ curl -X GET "http://lhost:8000/users/"
 -H  "Authorization: JWT Token
 ```
 #### Response
-```http
+```JSON
 	{
   	"success": true,
   	"message": {
-    "hashed_password": 	“hashed_string",
-	"name": "string",
-    	"email": "string"
+		"hashed_password": 	“hashed_string",
+		"name": "string",
+		"email": "string"
  	 },
   	"code": 200
 	}
